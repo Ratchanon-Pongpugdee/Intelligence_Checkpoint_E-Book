@@ -2,7 +2,8 @@ name: Build and deploy mdBook
 
 on:
   push:
-    branches: Beta
+    branches:
+      - Beta
   workflow_dispatch:
 
 permissions:
