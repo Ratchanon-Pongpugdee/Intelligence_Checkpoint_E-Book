@@ -1,0 +1,104 @@
+:root {
+  --guide-ink: #202923;
+  --guide-green: #326447;
+  --guide-lime: #d8e7bb;
+  --guide-orange: #bd5734;
+  --guide-paper: #f7f6ef;
+  --guide-line: #d9ded5;
+}
+
+body {
+  color: var(--guide-ink);
+  font-family: "Noto Sans Thai", "Leelawadee UI", Tahoma, sans-serif;
+  line-height: 1.8;
+}
+
+.content main {
+  max-width: 900px;
+}
+
+.content main h1,
+.content main h2,
+.content main h3 {
+  color: #274a37;
+  line-height: 1.45;
+}
+
+.content main h1 {
+  border-bottom: 2px solid var(--guide-lime);
+  padding-bottom: 0.35em;
+}
+
+.content main img {
+  display: block;
+  max-height: 540px;
+  margin: 1.5rem auto;
+  object-fit: contain;
+}
+
+.content main table {
+  display: table;
+  width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.content main th {
+  background: #edf1e6;
+}
+
+.guide-callout {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 5px solid var(--guide-green);
+  background: #eef3e8;
+}
+
+.guide-callout--question {
+  border-left-color: var(--guide-orange);
+  background: #fbf0e9;
+}
+
+.decision-activity {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  border: 1px solid var(--guide-line);
+  border-radius: 6px;
+  background: var(--guide-paper);
+}
+
+.decision-options {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.decision-option {
+  padding: 0.75rem 1rem;
+  border: 1px solid #6c8871;
+  border-radius: 4px;
+  background: #fff;
+  color: var(--guide-ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.decision-option:hover,
+.decision-option:focus-visible {
+  border-color: var(--guide-green);
+  background: #edf3e9;
+}
+
+.decision-feedback {
+  min-height: 2em;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .content main {
+    padding: 0 0.25rem;
+  }
+
+  .content main img {
+    max-height: 360px;
+  }
+}

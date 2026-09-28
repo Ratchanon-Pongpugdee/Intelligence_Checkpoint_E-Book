@@ -1,0 +1,12 @@
+[book]
+title = "ด่านอัจฉริยะ: คู่มือจริยธรรมและวิศวกรรมคอมพิวเตอร์"
+authors = ["คู่มือประกอบการเรียนรู้สำหรับนักศึกษาวิศวกรรมคอมพิวเตอร์"]
+language = "th"
+src = "src"
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "navy"
+additional-css = ["theme/css/custom.css"]
+additional-js = ["theme/js/guide.js"]
+git-repository-url = "https://github.com/Ratchanon-Pongpugdee/Intelligence_Checkpoint_E-Book.git"
