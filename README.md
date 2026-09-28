@@ -24,38 +24,55 @@
 5. [กิจกรรมอภิปราย](src/05-activity.md): สถานการณ์จำลองสำหรับการทำงานกลุ่ม
 6. [อภิธานศัพท์และแหล่งอ่านต่อ](src/06-references.md): คำศัพท์และแนวทางค้นคว้าเพิ่มเติม
 
-## เริ่มอ่าน
+## วิธีใช้งาน
 
-สามารถเปิดหนังสือฉบับเผยแพร่บน GitHub Pages ได้จากหน้า **About** ของ repository หากยังไม่ได้ตั้งค่า URL ให้เปิดอ่านจากไฟล์เริ่มต้น [src/index.md](src/index.md) หรือสร้างหนังสือในเครื่องตามขั้นตอนด้านล่าง
+### อ่านออนไลน์
 
-### อ่านและ build ในเครื่อง
+เปิดหนังสือฉบับเผยแพร่ได้โดยตรงที่ [ด่านอัจฉริยะบน GitHub Pages](https://ratchanon-pongpugdee.github.io/Intelligence_Checkpoint_E-Book/) โดยไม่ต้องติดตั้งโปรแกรม
 
-โปรเจกต์นี้ใช้ [mdBook](https://rust-lang.github.io/mdBook/) โดย workflow สำหรับเผยแพร่ติดตั้ง mdBook เวอร์ชัน `0.5.4` หากยังไม่มี mdBook ให้ติดตั้งตาม [คู่มือการติดตั้ง](https://rust-lang.github.io/mdBook/guide/installation.html) แล้วรันคำสั่งจากโฟลเดอร์รากของ repository:
+หากเข้าจาก GitHub ให้เปิด repository แล้วเลือก deployment ชื่อ **github-pages** ในส่วน **Deployments** จากนั้นเลือก **View deployment** หากไม่เห็นส่วนนี้ ให้ดู URL ที่ **Settings → Pages** หรือ workflow run ล่าสุดในแท็บ **Actions**
+
+### ดาวน์โหลด source เป็น ZIP
+
+เลือก **Code → Download ZIP** ในหน้า repository หรือ [ดาวน์โหลด source ของ branch Beta เป็น ZIP](https://github.com/Ratchanon-Pongpugdee/Intelligence_Checkpoint_E-Book/archive/refs/heads/Beta.zip) แล้วแตกไฟล์ลงเครื่อง
+
+### คัดลอกด้วย Git
+
+ต้องติดตั้ง Git ก่อน จากนั้นเปิด Terminal แล้วรัน:
+
+```sh
+git clone --branch Beta --single-branch https://github.com/Ratchanon-Pongpugdee/Intelligence_Checkpoint_E-Book.git
+cd Intelligence_Checkpoint_E-Book
+```
+
+ทั้ง ZIP และ `git clone` จะได้ **ไฟล์ต้นฉบับของหนังสือ** ไม่ใช่เว็บไซต์ที่ build แล้ว หากต้องการอ่านในรูปแบบเว็บไซต์บนเครื่อง ให้ติดตั้ง [mdBook](https://rust-lang.github.io/mdBook/guide/installation.html) ก่อน ผู้ใช้ Windows สามารถเลือก [ดาวน์โหลด mdBook v0.5.4 แบบ binary](https://github.com/rust-lang/mdBook/releases/download/v0.5.4/mdbook-v0.5.4-x86_64-pc-windows-msvc.zip) แทนการคอมไพล์ด้วย Cargo ได้
+
+เปิด Terminal ที่โฟลเดอร์โปรเจกต์ แล้วใช้คำสั่ง:
 
 ```sh
 mdbook serve --open
 ```
 
-คำสั่งนี้เปิดเว็บเซิร์ฟเวอร์สำหรับอ่านและดูการเปลี่ยนแปลงระหว่างแก้ไขเนื้อหา หากต้องการ build ไฟล์สำหรับเผยแพร่:
+คำสั่งนี้เปิดเว็บตัวอย่างในเครื่องและ rebuild เมื่อมีการแก้ไข หากต้องการสร้างไฟล์เว็บไซต์ครั้งเดียว ให้ใช้:
 
 ```sh
 mdbook build
 ```
 
-ไฟล์ผลลัพธ์จะอยู่ในโฟลเดอร์ `book/` ซึ่งสร้างขึ้นเมื่อ build สำเร็จ
+ไฟล์เว็บไซต์ที่สร้างเสร็จจะอยู่ใน `book/` โฟลเดอร์นี้เป็น build output ไม่จำเป็นต้อง commit เพราะ Git ละเว้นไว้แล้ว
 
-## เผยแพร่ด้วย GitHub Pages
+## การเผยแพร่
 
-ไฟล์ workflow ที่ `.github/workflows/pages.yml` จะ build หนังสือและเผยแพร่ผ่าน GitHub Pages เมื่อมีการ push ไปยัง branch `Beta` หรือเมื่อสั่ง workflow ด้วยตนเองจากแท็บ **Actions** ใน GitHub ก่อนใช้งาน ให้เปิด GitHub Pages ของ repository และเลือก **GitHub Actions** เป็นแหล่ง deploy จากนั้นดู URL ของเว็บไซต์ได้ใน workflow run หรือการตั้งค่า Pages
+workflow ที่ `.github/workflows/pages.yml` จะ build และ deploy ไป GitHub Pages เมื่อมีการ push ไปยัง branch `Beta` หรือเมื่อสั่ง `workflow_dispatch` จากแท็บ **Actions** การตั้งค่า Pages ของ repository ต้องเลือก **GitHub Actions** เป็นแหล่ง deploy
 
 ## โครงสร้างโปรเจกต์
 
 ```text
 .
 ├── .github/workflows/pages.yml  # build และ deploy ไปยัง GitHub Pages
-├── assets/                      # ภาพประกอบกรณีศึกษา
+├── .gitignore                   # ละเว้นไฟล์ build output
 ├── book.toml                    # ชื่อหนังสือและการตั้งค่า mdBook
-├── src/                         # เนื้อหาหนังสือและสารบัญ
+├── src/                         # เนื้อหา สารบัญ และภาพใน src/assets/
 ├── theme/css/custom.css         # รูปแบบเพิ่มเติม
 └── theme/js/guide.js            # พฤติกรรมประกอบกิจกรรมในคู่มือ
 ```
@@ -69,3 +86,13 @@ mdbook build
 ## การมีส่วนร่วม
 
 ข้อเสนอแนะเกี่ยวกับความถูกต้องของเนื้อหา การเข้าถึง หรือการปรับปรุงกิจกรรม สามารถส่งผ่าน GitHub Issues หรือ Pull Requests ได้ โปรดระบุบทหรือไฟล์ที่เกี่ยวข้อง พร้อมแหล่งอ้างอิงเมื่อเสนอการแก้ไขข้อเท็จจริงหรือข้อมูลด้านกฎหมาย
+
+## ผู้จัดทำ
+
+**Ratchanon Pongpakdee**<br>
+**Released on 29 September 2026**
+
+## แหล่งอ้างอิง
+
+**Dr.Sarayut Chaisuriya**<br>
+**2026 | ©Chitralada Technology Institute | Engineering Computer Generation VI**
