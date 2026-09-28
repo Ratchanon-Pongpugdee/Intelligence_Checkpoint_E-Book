@@ -63,7 +63,7 @@ mdbook build
 
 ## การเผยแพร่
 
-workflow ที่ `.github/workflows/pages.yml` จะ build และ deploy ไป GitHub Pages เมื่อมีการ push ไปยัง branch `Beta` หรือเมื่อสั่ง `workflow_dispatch` จากแท็บ **Actions** การตั้งค่า Pages ของ repository ต้องเลือก **GitHub Actions** เป็นแหล่ง deploy
+workflow ที่ `.github/workflows/pages.yml` จะ build และ deploy ไป GitHub Pages เมื่อมีการ push ไปยัง branch `Get-Started` หรือเมื่อสั่ง `workflow_dispatch` จากแท็บ **Actions** การตั้งค่า Pages ของ repository ต้องเลือก **GitHub Actions** เป็นแหล่ง deploy
 
 ## โครงสร้างโปรเจกต์
 
